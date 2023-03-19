@@ -1,0 +1,37 @@
+# name 标识一下这个 ci 文件名称，纯语义化的项，没有配置意义
+name: liwenjian.test
+
+# on 配置项用于配置该仓库的什么分支触发什么事件后进行该 ci 的调用
+on:
+  # master 分支 push 后触发
+  push:
+    branches: [ master ]
+  # master 分支 pull_request 后触发
+  pull_request:
+    branches: [ master ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# jobs是一个功能脚本的维度集合。比如配置检测库语法，发布库，可以作为两个工作(job)。一个yml文件可以运行多个job。
+jobs:
+  # 一个jobs拥有 setup / build / test 的秩序执行单元。这个维度大于 steps 小于 jobs。
+  build:
+    # 该操作跑在什么环境之下，支持 Ubuntu/Windows/macOS。
+    runs-on: ubuntu-latest
+
+    # step 标识一系列按续执行的最小工作单元
+    steps:
+      # uses 标识使用创建好的功能脚本，actions/ 标识了这是github公开的脚本库
+      # 这里使用了一个名为 checkout@v2 的脚本文件。
+      #- uses: actions/checkout@v2
+
+      # 运行单个的 shell
+      - name: Run 1
+        run: echo Hello, world!
+
+      # 运行多个 shell
+      - name: Run 2
+        run: |
+          #echo Add other actions to build,
+          echo test, and deploy your project.
