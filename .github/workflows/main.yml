@@ -38,3 +38,4 @@ jobs:
           echo test, and deploy your project.
       - name: Run 3
         run: sh test.sh
+             sh test2.sh || echo "error"
