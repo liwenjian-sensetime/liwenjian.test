@@ -12,6 +12,9 @@ on:
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
+env:
+  USE_COVERAGE: 1
+  USE_COVERAGE_old: qazwsx
 
 # jobs是一个功能脚本的维度集合。比如配置检测库语法，发布库，可以作为两个工作(job)。一个yml文件可以运行多个job。
 jobs:
