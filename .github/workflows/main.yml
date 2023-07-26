@@ -25,7 +25,7 @@ jobs:
     steps:
       # uses 标识使用创建好的功能脚本，actions/ 标识了这是github公开的脚本库
       # 这里使用了一个名为 checkout@v2 的脚本文件。
-      #- uses: actions/checkout@v2
+      - uses: actions/checkout@v2
 
       # 运行单个的 shell
       - name: Run 1
