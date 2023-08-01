@@ -13,7 +13,7 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 env:
-  USE_COVERAGE: 1
+  USE_COVERAGE: ON
   USE_COVERAGE_old: qazwsx
 
 # jobs是一个功能脚本的维度集合。比如配置检测库语法，发布库，可以作为两个工作(job)。一个yml文件可以运行多个job。
@@ -40,5 +40,10 @@ jobs:
           #echo Add other actions to build,
           echo test, and deploy your project.
       - name: Run 3
-        run: sh test.sh
-             sh test2.sh || echo "error"
+        run: |
+          if [ "${USE_COVERAGE}" = "ON" ]; then
+            run_test="coverage run -p"
+          else
+            run_test="python"
+          fi
+          echo "${run_test}"
