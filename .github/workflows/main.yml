@@ -48,3 +48,17 @@ jobs:
           fi
           echo "${run_test}"
           sh test.sh
+
+  Benchmark_pat_rc:
+    name: OP Benchmark pat_rc
+    runs-on: ubuntu-latest
+    strategy:
+      max-parallel: 1
+      matrix:
+        env_name: [pat0.21.0rc1, pat0.20.0rc0, pat0.19.0rc0]
+    steps:
+      - name: OP Benchmark old rc
+        run: |
+          export PARROTS_ENV=${{ matrix.env_name }}
+          echo $PARROTS_ENV
+          
