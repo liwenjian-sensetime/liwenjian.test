@@ -30,9 +30,6 @@ jobs:
       # 这里使用了一个名为 checkout@v2 的脚本文件。
       - uses: actions/checkout@v2
 
-      # 运行单个的 shell
-      - name: Run 1
-        run: echo Hello, world!
 
       # 运行多个 shell
       - name: Run 2
