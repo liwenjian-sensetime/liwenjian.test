@@ -36,7 +36,7 @@ jobs:
         run: |
           #echo Add other actions to build,
           echo test, and deploy your project.
-        timeout-minutes: 9999
+        timeout-minutes: 99999
       - name: Run 3
         run: |
           if [ "${USE_COVERAGE}" = "ON" ]; then
@@ -46,6 +46,7 @@ jobs:
           fi
           echo "${run_test}"
           sh test.sh
+        timeout-minutes: 99999
 
   Benchmark_pat_rc:
     name: OP Benchmark pat_rc
@@ -59,4 +60,5 @@ jobs:
         run: |
           export PARROTS_ENV=${{ matrix.env_name }}
           echo $PARROTS_ENV
+        timeout-minutes: 99999
           
