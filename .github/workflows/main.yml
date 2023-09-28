@@ -22,6 +22,7 @@ jobs:
   build:
     # 该操作跑在什么环境之下，支持 Ubuntu/Windows/macOS。
     runs-on: ubuntu-latest
+    timeout-minutes: 99999
     env:
       GPU_REQUESTS: 1
     # step 标识一系列按续执行的最小工作单元
@@ -36,7 +37,6 @@ jobs:
         run: |
           #echo Add other actions to build,
           echo test, and deploy your project.
-        timeout-minutes: 99999
       - name: Run 3
         run: |
           if [ "${USE_COVERAGE}" = "ON" ]; then
@@ -46,7 +46,7 @@ jobs:
           fi
           echo "${run_test}"
           sh test.sh
-        timeout-minutes: 99999
+
 
   Benchmark_pat_rc:
     name: OP Benchmark pat_rc
@@ -60,5 +60,4 @@ jobs:
         run: |
           export PARROTS_ENV=${{ matrix.env_name }}
           echo $PARROTS_ENV
-        timeout-minutes: 99999
           
