@@ -36,7 +36,6 @@ jobs:
         run: |
           #echo Add other actions to build,
           echo test, and deploy your project.
-          sleep 3000
       - name: Run 3
         run: |
           if [ "${USE_COVERAGE}" = "ON" ]; then
